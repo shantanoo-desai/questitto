@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  questdb:
+    image: questdb/questdb
+    container_name: questdb
+    ports:
+      - "9000:9000"
+      - "9009:9009"
+    networks:
+      - "iotstack"
+  
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    user: "1883"
+    ports:
+      - "1883:1883"
+    links:
+      - telegraf
+    restart: always
+    networks:
+      - "iotstack"
+  
+  telegraf:
+    image: telegraf
+    container_name: telegraf
+    links:
+      - questdb
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - "iotstack"
+
+networks:
+  iotstack:

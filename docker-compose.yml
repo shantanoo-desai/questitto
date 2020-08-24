@@ -15,7 +15,7 @@ services:
     container_name: mosquitto
     volumes:
       - ./mosquitto/config:/mosquitto/config
-    user: "1883"
+      - ./mosquitto/data:/mosquitto/data
     ports:
       - "1883:1883"
     links:
@@ -27,6 +27,7 @@ services:
   telegraf:
     image: telegraf
     container_name: telegraf
+    env_file: questitto.env
     links:
       - questdb
     volumes:

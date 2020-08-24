@@ -17,3 +17,7 @@ Mosquitto + Telegraf + QuestDB Easy-to-Deploy Stack for quick IoT Prototype Scen
 - See / Adapt the `topics` array in the `telegraf.conf` file
 - Remove / Adapt the `processors.regex` and `processors.enum` configuration in `telegraf.conf`
 
+
+## Blog Post
+
+Complete write up [here](https://shantanoo-desai.github.io/posts/technology/questitto_light_stack_for_iot/)

@@ -10,6 +10,7 @@ Mosquitto + Telegraf + QuestDB Easy-to-Deploy Stack for quick IoT Prototype Scen
 ### Mosquitto
 - Minimal configuration to provide logs on `stdout` for `docker-compose logs`
 - available on `tcp://localhost:1883`
+- Add / Remove users in `mosquitto/config/passwd` file
 
 ### Telegraf
 - based on [TIG Stack example in tiguitto](https://github.com/shantanoo-desai/tiguitto) the configuration remains same
